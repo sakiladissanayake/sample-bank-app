@@ -1,0 +1,38 @@
+{
+  "name": "sexy-table",
+  "homepage": "https://github.com/brad-jones/sexy-table",
+  "authors": [
+    "Brad Jones <brad@bjc.id.au>"
+  ],
+  "description": "A good looking HTML5 table that's not a table :)",
+  "main": "dist/SexyTable.js",
+  "typescript": {
+    "definition": "dist/SexyTable.d.ts"
+  },
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "styled",
+    "html5",
+    "virtual",
+    "table"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/*",
+    "!bower.json",
+    "!dist/*.*"
+  ],
+  "version": "0.0.26",
+  "_release": "0.0.26",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.26",
+    "commit": "3f49e8521c9f25b0df3cf63cd823578e63f7c27e"
+  },
+  "_source": "https://github.com/brad-jones/sexy-table.git",
+  "_target": "^0.0.26",
+  "_originalSource": "sexy-table",
+  "_direct": true
+}

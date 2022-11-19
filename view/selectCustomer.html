@@ -1,0 +1,281 @@
+<!doctype html>
+<html ng-app="BankModule">
+
+<head>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" <!--bootstrap-->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"></link>
+
+
+    <!--sweetAlert-->
+    <link rel="stylesheet" href="../bower_components/sweetalert/dist/sweetalert.css"></link>
+    <script src="../bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!--angular-->
+    <script src="../bower_components/angular/angular.js"></script>
+
+    <!--cdn for dropdown window-->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+    <!--      title-->
+
+    <title>ABC Bank | Select Customer</title>
+
+
+    <!--      page link-->
+
+    <script src="../Controllers/selectCustomerController.js"></script>
+
+
+
+</head>
+
+<body ng-controller="selectCustomerController">
+
+    <div class="container">
+
+        <div class="page-header ">
+            <h3 class="text-info">ABC Bank</h3>
+        </div>
+
+        <div class="col-md-12 ">
+            <div class="col-md-11">
+                <h3><strong>Search for Customer</strong></h3>
+            </div>
+            <div class="col-md-1 ">
+
+                <a href="../index.html" id="btnLogOut">Log out</a>
+
+            </div>
+        </div>
+
+        <div class="well well-lg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <br/>
+                        <br/>
+
+                        <div class="form-group col-md-6">
+                            <label>Search by any field </label>
+                            <input class="form-control" ng-model="searchWord" id="txtSearchByAnyName" placeholder="Search by any field">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Search by Account Number </label>
+                            <input class="form-control" ng-model="search.Beneficiary_Acc_No" id="txtSearchByAccNo" placeholder="Search by account Number">
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h4><strong>View customer details</strong></h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dtCustomerTable">
+
+                        <tr>
+                            <th>S No</th>
+                            <th>Account Number</th>
+                            <th>Beneficiary Name</th>
+                            <th>IFSC Code</th>
+                            <th>Availabale amount</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+
+
+                        <tr ng-repeat="Customer in Customers | filter: search|filter:searchWord">
+                            <td>{{Customer.S_No}}</td>
+                            <td>{{Customer.Beneficiary_Acc_No}}</td>
+                            <td>{{Customer.Beneficiary_Name}}</td>
+                            <td>{{Customer.IFSC_Code}}</td>
+                            <td>{{Customer.Available_Amount}}</td>
+                            <td>
+
+                                <div class="form-group ">
+                                    <button class="btn btn-warning btn-sm" id="btnTrnPage" ng-click="transactionPage(Customer)" data-toggle="modal" data-target="#myModal">Transaction
+                                        <span class="glyphicon glyphicon-cog"></span></button>
+
+
+                                    <!-- Modal -->
+                                    <div class="modal fade " id="myModal" role="dialog">
+                                        <div class="modal-dialog modal-lg">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content" style="background-color:#2B393E;">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" style="color: #FFFCFF" ;>Transaction Page</h4>
+                                                </div>
+                                                <div class="modal-body col-md-12">
+
+                                                    <div class="well well-lg" style="background-color:#F8FCDA;">
+                                                        <h3>Customer Details</h3>
+                                                        <div class="row">
+
+                                                            <br/>
+
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>S No</label>
+                                                                    <input type="text" class="form-control" ng-model="newCustomer.S_No" id="txtSNo" disabled="disabled">
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Account Number</label>
+                                                                    <input class="form-control" ng-model="newCustomer.Beneficiary_Acc_No" id="txtAccNo" disabled>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Beneficiary Name</label>
+                                                                    <input class="form-control" ng-model="newCustomer.Beneficiary_Name" id="txtBenName" disabled>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>IFSC Code</label>
+                                                                    <input class="form-control" ng-model="newCustomer.IFSC_Code" id="txtIfscCode" disabled>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Available Amount</label>
+                                                                    <input class="form-control" ng-model="newCustomer.Available_Amount" id="txtAmount" disabled>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-md-12"></div>
+                                                    <div class="col-md-12">
+                                                        <br/>
+                                                        <br/>
+
+                                                    </div>
+
+
+
+
+                                                    <div class="well well-lg" style="background-color:#F8FCDA;">
+
+                                                        <div class="row">
+
+                                                            <div class="col-md-12">
+
+                                                                <div class="col-md-6">
+
+                                                                    <label>Transaction Type</label>
+                                                                    <select class="form-control" ng-model="transaction.Type" id="ddTraType">
+
+                                                                        <option value="" disabled="disabled" selected="selected">Select the transaction type</option>
+                                                                        <option value='withdraw' selected="selected">Withdraw</option>
+                                                                        <option value='deposit'>Deposit</option>
+
+
+                                                                    </select>
+
+                                                                </div>
+
+                                                                <div class="col-md-6" ng-show="transaction.Type=='deposit'">
+
+                                                                    <div ng-show="transaction.Type=='deposit'">
+
+                                                                        <label style="margin-right: 5%">Deposit Type</label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" value="cash" name="dtype" ng-model="depoType" id="rdbtn1">Cash</label>
+
+
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" value="anotherAccount" name="dtype" ng-model="depoType" id="rdbtn2">Another account</label>
+
+                                                                    </div>
+
+
+                                                                    <div ng-show="depoType=='anotherAccount'">
+                                                                        <div class="form-group">
+                                                                            <input class="form-control" ng-model="transaction.traAccNo" id="txtTraAccNo" placeholder="Enter Account Number" >
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                            </div>
+
+
+                                                            <div class="col-md-12">
+                                                                <br/>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Transaction Amount</label>
+                                                                        <input type="number" class="form-control" ng-model="transaction.Amount" id="txtTraAmount" min="0" placeholder="Rs 0.00">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" ng-click="proceedTransaction(newCustomer,depoType)" id="btnProceedTransaction">
+                                                        Proceed Transaction</button>
+                                                    <a type="button" class="btn btn-default" data-dismiss="modal" ng-click="claerData()" id="btnCloseSubWindow">Close</a>
+
+                                                    <!--                                                    <button ng-click="closeModal()">close</button>-->
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+
+
+                    </table>
+                    
+                    <button class="btn btn-primary" ng-click="download()" id="downloadButton">Download</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+
+
+
+</html>

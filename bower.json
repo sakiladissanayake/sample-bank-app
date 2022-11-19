@@ -1,0 +1,24 @@
+{
+  "name": "bankapp",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Sakila Dissanayake"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.5",
+    "bootstrap": "^3.3.7",
+    "sweetalert": "^1.1.3",
+    "sexy-table": "^0.0.26"
+  }
+}

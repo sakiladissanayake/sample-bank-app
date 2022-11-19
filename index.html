@@ -1,0 +1,131 @@
+<!doctype html>
+<html ng-app="BankModule">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"></link>
+
+    <!--sweetAlert-->
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css"></link>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!--angular-->
+    <script src="bower_components/angular/angular.js"></script>
+
+
+
+    <!--      title-->
+
+    <title>ABC Bank | Log In</title>
+
+
+    <!--      page link-->
+
+    <script src="Controllers/loginController.js"></script>
+
+</head>
+
+<body ng-controller="loginController">
+
+
+
+    <div class="container ">
+
+        <div class="page-header col-md-12">
+
+            <div class="col-md-5" style="text-align: right">
+                <img src="pictures/bank.png" width="15%" height="15%" />
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-info">ABC Bank</h2>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-12">
+
+
+                        <div class="col-md-12" style="text-align: center">
+                            <div class="col-md-12 ">
+                                <h3><strong>System LogIn</strong></h3>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <br/>
+                            <br/>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="col-md-4"></div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>User Name</label>
+                                    <input type="text" class="form-control" ng-model="login.username" id="txtLoginUserName">
+                                </div>
+                            </div>
+
+                            <div class="col-md-9"></div>
+
+                            <div class="col-md-4"></div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" ng-model="login.password" id="txtLoginPassword">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-12">
+
+                            <div class="col-md-4"></div>
+
+                            <div class="col-md-1">
+                                <div class="form-group pull-center">
+                                    <button class="btn btn-success" id="btnloginSubmit" ng-click="login()">Log In</button>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-2">
+                                <div class="form-group pull-center">
+                                    <button class="btn btn-danger" id="btnLoginClear" ng-click="clear()">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+
+
+
+</html>
